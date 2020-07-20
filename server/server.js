@@ -1,3 +1,5 @@
+//Server
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -5,7 +7,7 @@ const passport = require("passport");
 const cors = require("cors");
 const config  = require('./config/') ;
 
-
+// App Class
 class App {
   constructor() {
     this.app = express();
