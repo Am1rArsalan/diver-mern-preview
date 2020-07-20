@@ -1,6 +1,6 @@
 import React from 'react' ;
 import ReactDOM from 'react-dom' ;
-//import './index.scss';
+import './index.scss';
 import App from './App' ;
 
 
@@ -16,7 +16,7 @@ const store = configureStore();
 function ReduxWrappedApp() {
   return (
     <Provider store={store}>
-      <BrowserRouter basename='/admin'>
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
