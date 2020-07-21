@@ -1,40 +1,17 @@
 import React from "react";
+//import {
+  //makeStyles,
+//} from "@material-ui/core/styles";
 import {
-  useTheme,
-  makeStyles,
-  ThemeProvider,
-  withStyles,
-} from "@material-ui/core/styles";
-import {
-  useMediaQuery,
   Grid,
-  Badge,
-  Avatar,
-  SvgIcon,
   Button,
-  Fab,
-  Typography,
 } from "@material-ui/core";
-import { FiPlus } from "react-icons/fi";
 import useSharedStyles from "./UI/useShareStyles";
 
-const useSittingStyles = makeStyles(() => ({
-  content: {
-    height: "100%",
-    //backgroundColor:"#ccc"
-  },
-  header: { height: 96, marginBottom: 16, paddingTop: 20, paddingBottom: 20 },
-  fabLabel: { fontSize: "4rem", color: "#fff" },
-  fab: {
-    background: "#0AB571",
-    border: "1px solid #FFFFFF",
-    boxSizing: "border-box",
-    boxShadow: "0.5px 0.5px 1px rgba>(0, 0, 0, 0.15)",
-  },
-}));
+//const useSittingStyles = makeStyles(() => ({
+//}));
 
 export default function () {
-  const classes = useSittingStyles();
   const sharedClasses = useSharedStyles();
   return (
     <Grid container justify="space-around">
