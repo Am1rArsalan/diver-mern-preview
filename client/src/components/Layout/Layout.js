@@ -6,6 +6,7 @@ import SideNav from "./SideBar";
 import MobileNav from "../UI/MobileNav";
 import Header from "../UI/Header";
 import useScrollPosition from "../../hooks/useScrollPos";
+import useStyles from '../UI/styles/LayoutStyles' ;
 
 export default function ({ children }) {
   const classes = useStyles();
@@ -47,27 +48,3 @@ export default function ({ children }) {
   );
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    padding: ".6rem 0",
-    direction: "rtl",
-    //height: "100vh",
-    [theme.breakpoints.up("md")]: {
-      width: "95%",
-      margin: "auto",
-      marginTop: "1.5rem",
-      overflow: "hidden",
-      height: "95vh",
-    },
-    [theme.breakpoints.down("md")]: {
-      padding: 0,
-    },
-    [theme.breakpoints.down("xs")]: {
-      padding: 0,
-    },
-  },
-  content: {
-    height: "100%",
-  },
-  contentArea: { maxWidth: "99" },
-}));

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema ;
 
+
 const UserSchema = new Schema({
     name: {
        type : String  ,
@@ -25,32 +26,8 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-});
+} , { timestamps : true});
 
+const User =  mongoose.model('users' ,  UserSchema )   ;
 
-const transActionSchema = new Schema({
-   from : {
-       type : Schema.Types.ObjectId ,
-       ref : "users" ,
-       required : true
-   } ,
-  recived: {
-     type :Boolean ,
-      required : true
-  } ,
-
-  des : {
-      type :String,
-      required : true
-  }
-}) ;
-
-
-
-const TransAction =  mongoose.model('transActions' , transActionSchema )   ;
-const User =  mongoose.model('users' , transActionSchema )   ;
-
-module.exports = { TransAction , User } ;
-
-
-
+module.exports =   User  ;

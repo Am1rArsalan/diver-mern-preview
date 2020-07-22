@@ -2,7 +2,7 @@ import useScrollPos from './useScrollPos' ;
 import { useState , useEffect}  from 'react' ;
 import * as Scroll from "react-scroll";
 
-
+// useHeader hook
 export default function() {
   const [showSerchBar, setSearchBar] = useState(false);
   const scrollPos = useScrollPos();

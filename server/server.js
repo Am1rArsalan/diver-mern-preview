@@ -23,7 +23,6 @@ class App {
   }
 
   setExpress = () => {
-    console.log('express Config')
     this.app.listen(config.port, (err) => {
       if (err) console.log("Error in setting express " + err);
       console.log(`Server running on port http://localhost:${config.port}`);
@@ -31,7 +30,6 @@ class App {
   };
 
   setMongo = () => {
-    console.log('mongo Config')
     mongoose.Promise = global.Promise;
     mongoose.connect(config.mongourl, (err) => {
       if (err) console.log("Error in connection to the database");
@@ -39,10 +37,12 @@ class App {
         console.log("connected to db");
       }
     });
+    require("./models/user") ;
+    require("./models/transAction") ;
+
   };
 
   setConfig = () => {
-    console.log('setConfig')
     // browsers does not let us to connect to another local host
     this.app.use(cors());
     // set the static routes
@@ -63,7 +63,6 @@ class App {
   };
 
   setRoutes = () => {
-    console.log('setRoutes')
     this.app.use("/api", require("./routes/index.js"));
   };
 

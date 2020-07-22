@@ -11,8 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import UserAvatar from "./UI/UserAvatar";
 import useSharedClasses from "./UI/useShareStyles";
 import SuspenseTransactions from "./UI/SuspenseTransactions";
-import useScrollPos from '../hooks/useScrollPos' ;
-
+import useScrollPos from "../hooks/useScrollPos";
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -27,8 +26,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function convertToPersian(number) {
+  let en_number = number.toString();
+  let persianDigits = "۰۱۲۳۴۵۶۷۸۹";
+  let persianMap = persianDigits.split("");
+  return en_number.replace(/\d/g, function (m) {
+    return persianMap[parseInt(m)];
+  });
+}
 
-export default function() {
+export default function ({ data }) {
   const classes = useStyles();
   const sharedClasses = useSharedClasses();
   const theme = useTheme();
@@ -62,17 +69,18 @@ export default function() {
                   }}
                   component="span"
                 >
-                  دریافت از{" "}
+                  {data.recived ? "دریافت از" : "ارسال به"}
                 </Typography>
                 <Typography
                   classes={{ root: sharedClasses.text }}
                   style={{
                     fontSize: match ? 12 : 28,
                     color: "#333333",
+                    marginRight: 5,
                   }}
                   component="span"
                 >
-                  مسعود امجد
+                  {data.from.name}
                 </Typography>
               </Typography>
               <Typography
@@ -87,7 +95,7 @@ export default function() {
                   color: "#969696",
                 }}
               >
-                دنگ شام دیشب
+                {data.des}
               </Typography>
             </Grid>
           </Grid>
@@ -106,8 +114,7 @@ export default function() {
                   paddingTop: 5,
                 }}
               >
-                {" "}
-                ۳۵۰.۰۰۰{" "}
+                {convertToPersian(data.amount)}
               </Typography>
               <Typography
                 classes={{
@@ -146,4 +153,3 @@ export default function() {
     </ListItem>
   );
 }
-
