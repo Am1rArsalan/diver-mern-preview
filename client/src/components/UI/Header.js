@@ -1,25 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useTheme, makeStyles } from "@material-ui/core/styles";
-import {
-  useMediaQuery,
-  Grid,
-  Fab,
-  Typography,
-  IconButton,
-  Hidden,
-} from "@material-ui/core";
-import { FiPlus } from "react-icons/fi";
+import { useTheme } from "@material-ui/core/styles";
+import { useMediaQuery, Grid, Hidden } from "@material-ui/core";
 import useSharedStyles from "../UI/useShareStyles";
-import HeaderBack from "../../assets/prominent header.svg";
-import Plus from "../../assets/main plus.svg";
 import ControlButtons from "../UI/ControlButtons";
 import UserAvatar from "../UI/UserAvatar";
 import { FaSearch } from "react-icons/fa";
 import SearchBar from "../UI/SearchBar";
-import useScrollPos from "../../hooks/useScrollPos";
-import Amount from  "../UI/Amount" ;
-import useHeader from '../../hooks/useHeader' ;
-
+import Amount from "../UI/Amount";
+import useHeader from "../../hooks/useHeader";
+import useHeaderStyles from "./styles/HeaderStyles";
 
 export default function () {
   const classes = useHeaderStyles();
@@ -28,7 +17,7 @@ export default function () {
   const match = useMediaQuery(theme.breakpoints.down("sm"));
   const matchXs = useMediaQuery(theme.breakpoints.down("xs"));
   const matchVerySmall = useMediaQuery("(max-width:375px)");
-  const [showSerchBar, toggleShowSearchBar, scrolled] = useHeader();
+  const { showSerchBar, toggleShowSearchBar, scrolled } = useHeader();
   let headerClasse =
     scrolled && match ? classes.headerScrolled : classes.headerScrollTop;
 
@@ -90,7 +79,7 @@ export default function () {
               ) : null}
 
               <Grid item>
-                 <Amount/>
+                <Amount />
               </Grid>
             </Grid>
           </Grid>
@@ -114,72 +103,3 @@ export default function () {
     </Grid>
   );
 }
-
-const useHeaderStyles = makeStyles((theme) => ({
-  header: {
-    height: 96,
-    background: `url("${HeaderBack}")`,
-    [theme.breakpoints.down("sm")]: {
-      height: "auto",
-    },
-  },
-  headerScrolled: {
-    [theme.breakpoints.down("sm")]: {
-      marginBottom: 0,
-      position: "fixed",
-      width: "100%",
-      height: 70,
-      zIndex: 6666,
-    },
-  },
-  headerScrollTop: {
-    //marginBottom: 16,
-    //paddingTop: 20,
-    //paddingBottom: 20,
-    [theme.breakpoints.down("xs")]: {
-      marginBottom: 0,
-      paddingTop: 0,
-      paddingBottom: 8,
-    },
-  },
-  fabLabel: {
-    fontSize: "4rem",
-    color: "#fff",
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "6rem",
-    },
-  },
-  fab: {
-    //background: "#0AB571",
-    //border: "1px solid #FFFFFF",
-    background: `url("${Plus}")`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    boxSizing: "border-box",
-    boxShadow: "0.5px 0.5px 1px rgba>(0, 0, 0, 0.15)",
-    [theme.breakpoints.down("xs")]: {
-      width: "35px",
-      height: "35px",
-    },
-  },
-  fabSize: { width: 32, height: 32 },
-  searchButton: {
-    padding: 5,
-    borderRadius: 15,
-    "&:hover": {
-      cursor: "pointer",
-      boxShadow: "0 2px 4px #aaa",
-    },
-  },
-  labelSize: {
-    fontSize: 8,
-    lineHeight: 14,
-  },
-  amountWrapper: {
-    [theme.breakpoints.up("md")]: {
-      position: "absolute",
-      width: "18rem",
-      left: "6px",
-    },
-  },
-}));
