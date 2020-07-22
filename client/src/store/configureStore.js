@@ -1,20 +1,29 @@
-
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import rThunk from 'redux-thunk';
+import createSagaMiddleware from 'redux-saga';
+
+import transActionsReducer from './reducers/transActionsReducer' ;
+import transActionsSaga from './sagas/'
+
 
 const reducer = combineReducers({
+   transActions : transActionsReducer
 });
-
-const composeEnhaunster = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
 // initial State  ,
 
-const initialState = {
+const configureStore = (initState) => {
 
-}
+    const sagaMiddleware = createSagaMiddleware();
+    const composeEnhaunster = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
-const configureStore = (initState = initialState) => {
-    return createStore(reducer, initState , composeEnhaunster(applyMiddleware(rThunk)));
+
+
+    const store = createStore(reducer, initState , composeEnhaunster(applyMiddleware(sagaMiddleware)));
+
+    sagaMiddleware.run(transActionsSaga)
+
+    return store  ;
+
 }
 
 

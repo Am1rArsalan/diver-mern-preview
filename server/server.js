@@ -1,11 +1,9 @@
-//Server
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const cors = require("cors");
-const config  = require('./config/') ;
+const config = require("./config/");
 
 // App Class
 class App {
@@ -25,13 +23,15 @@ class App {
   }
 
   setExpress = () => {
+    console.log('express Config')
     this.app.listen(config.port, (err) => {
       if (err) console.log("Error in setting express " + err);
-        console.log(`Server running on port http://localhost:${config.port}`);
+      console.log(`Server running on port http://localhost:${config.port}`);
     });
-  }
+  };
 
-    setMongo = ()=> {
+  setMongo = () => {
+    console.log('mongo Config')
     mongoose.Promise = global.Promise;
     mongoose.connect(config.mongourl, (err) => {
       if (err) console.log("Error in connection to the database");
@@ -39,41 +39,41 @@ class App {
         console.log("connected to db");
       }
     });
-  }
+  };
 
-  setConfig =()=> {
+  setConfig = () => {
+    console.log('setConfig')
     // browsers does not let us to connect to another local host
     this.app.use(cors());
-
     // set the static routes
     this.app.use(express.static("public"));
-    // config body parser
+
+   // config body parser
+    this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
 
     // implement passport starategies
     //require("./passport/passport");
-   //require("./passport/passport-jwt");
+    //require("./passport/passport-jwt");
 
-    // config body parser
-    this.app.use(bodyParser.urlencoded({ extended: true }));
 
     // passposrt
     //this.app.use(passport.initialize());
     //this.app.use(passport.session());
-  }
+  };
 
   setRoutes = () => {
+    console.log('setRoutes')
     this.app.use("/api", require("./routes/index.js"));
-  }
+  };
 
   // react applications ui !!
   //setReactClient() {
-    //this.app.use(express.static(path.join(__dirname, "client/build")));
-    //this.app.get("*", (req, res) => {
+      //this.app.use(express.static(path.join(__dirname, "client/build")));
+      //this.app.get("*", (req, res) => {
       //res.sendFile(path.join(__dirname + "/client/build/index.html"));
-    //});
+  //});
   //}
 }
-
 
 module.exports = App;

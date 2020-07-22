@@ -19,5 +19,5 @@ export default function() {
     setSearchBar(!showSerchBar);
   }
 
-  return [showSerchBar, toggleShowSearchBar, scrolled];
+  return {showSerchBar, toggleShowSearchBar, scrolled} ;
 }
