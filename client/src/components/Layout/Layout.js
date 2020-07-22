@@ -5,43 +5,34 @@ import appTheme from "../../components/UI/theme";
 import SideNav from "./SideBar";
 import MobileNav from "../UI/MobileNav";
 import Header from "../UI/Header";
-
-function useScrollPosition() {
-  const [scrollPosition, setSrollPosition] = useState(0);
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setSrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  return scrollPosition ;
-}
+import useScrollPosition from "../../hooks/useScrollPos";
 
 export default function ({ children }) {
   const classes = useStyles();
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
-  const scrollPosition = useScrollPosition() ;
+  const scrollPosition = useScrollPosition();
 
   return (
     <ThemeProvider theme={appTheme}>
       <Grid
         className={classes.root}
         container={!match}
-        justify="center"
-        spacing={2}
+        justify="space-around"
+        //alignItems="center"
+        //spacing={4}
+        style={
+          {
+            //width: '95%' ,
+            //margin: 'auto' ,
+          }
+        }
       >
         <Hidden smDown>
           <SideNav />
         </Hidden>
-        <Grid item className={classes.content} xs={match ? 12 : 7}>
 
+        <Grid item className={classes.content} xs={12} md={9}>
           <Header scrolled={scrollPosition !== 0} />
 
           <Grid item xs={12} classes={{ root: classes.contentArea }}>
@@ -61,6 +52,13 @@ const useStyles = makeStyles((theme) => ({
     padding: ".6rem 0",
     direction: "rtl",
     //height: "100vh",
+    [theme.breakpoints.up("md")]: {
+      width: "95%",
+      margin: "auto",
+      marginTop: "1.5rem",
+      overflow: "hidden",
+      height: "95vh",
+    },
     [theme.breakpoints.down("md")]: {
       padding: 0,
     },

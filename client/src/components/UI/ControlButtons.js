@@ -6,10 +6,13 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles  = makeStyles((theme) => ({
     size : {
-       width : 40 , height : 32, } ,
+       width : 40 , height : 32,
+       minWidth: 40
+    } ,
 
     labelSize  : {
-       fontSize : 8 , lineHeight: 14
+       fontSize : 8 ,
+       //lineHeight: 14
     }
 }))
 
@@ -24,6 +27,7 @@ export default  function ({ scrolled }) {
       <Grid item xs={match ? 6 : 12}>
         <Button
           variant="outlined"
+          fullWidth={!match}
           classes={{
             root: [sharedClasses.button, sharedClasses.greenButton, scrolled ? classes.size : ""].join(" "),
             label: [sharedClasses.buttonLabel , scrolled ?  classes.labelSize : ""].join(" "),

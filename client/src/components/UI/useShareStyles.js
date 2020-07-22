@@ -2,12 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useSharedStyles = makeStyles((theme) => ({
   root: {
-    background: "#3041D0",
+    //background: theme.palette.common.blue ,
     boxShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.25)",
     borderRadius: "10px",
-    color: "#fff",
+    color: theme.palette.common.white,
     position: "relative",
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       borderRadius: 0,
     },
   },
@@ -17,29 +17,28 @@ const useSharedStyles = makeStyles((theme) => ({
     fontWeight: "normal",
     fontSize: "14px",
     lineHeight: "24px",
-    [theme.breakpoints.down("md")]: {
-      padding: 0,
-      fontSize: "8px",
-    },
+    //[theme.breakpoints.down("md")]: {
+      //padding: 0,
+      //fontSize: "8px",
+    //},
     [theme.breakpoints.down("xs")]: {
       padding: 0,
       fontSize: "8px",
     },
   },
   contentBox: {
-    background: "#FFFFFF",
+    background: theme.palette.common.white ,
     boxShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.25)",
     borderRadius: "10px",
   },
 
   button: {
-    color: "#fff",
-    borderColor: "#fff",
+    color: theme.palette.color,
+    borderColor: theme.palette.common.white,
     width: 176,
     height: 40,
     marginBottom: 5,
-    border: "1px solid #FFFFFF",
-    padding: "1.5rem 2rem",
+    border: `1px solid ${theme.palette.common.white} ` ,
     boxShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.25)",
     boxSizing: "border-box",
     borderRadius: 3,
@@ -53,16 +52,17 @@ const useSharedStyles = makeStyles((theme) => ({
     },
   },
   greenButton: {
-    backgroundColor: "#0AB571",
+    backgroundColor: theme.palette.common.green ,
   },
   blueButton: {
-    backgroundColor: "#334CD2",
+    backgroundColor: theme.palette.common.blue,
   },
   buttonLabel: {
+    color : theme.palette.common.white  ,
     backdropFilter: 'blur(4px)' ,
     fontFamily: "IRANSans",
-      fontStyle: "normal",
-      fontWeight: "500",
+    fontStyle: "normal",
+    fontWeight: "500",
     fontSize: "15px",
     lineHeight: "25px",
     [theme.breakpoints.down("md")]: {
