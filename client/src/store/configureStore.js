@@ -9,8 +9,6 @@ const reducer = combineReducers({
    transActions : transActionsReducer
 });
 
-// initial State  ,
-
 const configureStore = (initState) => {
 
     const sagaMiddleware = createSagaMiddleware();

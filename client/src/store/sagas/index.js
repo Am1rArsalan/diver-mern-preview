@@ -32,13 +32,12 @@ function* fetchTransAction() {
   }
 }
 
-export function* rootSaga() {
-  console.log('CSACASCJSCCSAC')
+export function* transActionsSaga() {
   yield takeEvery( FETCH_TRANSACTIONS , fetchTransAction);
 }
 
 // Does not allow concurrent fetches of users   // yield takeLatest(LOAD_USERS_LOADING, fetchUser);}
-export default rootSaga;
+export default transActionsSaga;
 
 
 
