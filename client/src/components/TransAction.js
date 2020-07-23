@@ -41,70 +41,105 @@ export default function ({ data }) {
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
 
+  useEffect(() => {
+    console.log("Hello oooooo", match);
+  });
   return (
     <ListItem classes={{ root: classes.listItem }}>
       <ListItemAvatar>
         <UserAvatar />
       </ListItemAvatar>
       <Grid container justify="space-between" alignItems="center">
-        <Grid item>
+        <Grid item sm={!match ? 8 : 0}>
           <Grid
             container
             direction={match ? "column" : "row-reverse"}
             justify="space-between"
           >
-            <Grid>
-              <Typography
-                classes={{ root: sharedClasses.text }}
-                style={{
-                  fontSize: match ? 18 : 25,
-                  paddingTop: 5,
-                }}
+            <Grid item style={{ width: "100%" }}>
+              <Grid
+                container={!match}
+                alignItems="center"
+                justify="space-between"
               >
                 <Typography
                   classes={{ root: sharedClasses.text }}
                   style={{
-                    fontSize: match ? 9 : 15,
-                    color: "#A9A9A9",
+                    fontSize: match ? 18 : 25,
+                    paddingTop: 5,
+                      textAlign:"right"
                   }}
-                  component="span"
                 >
-                  {data.recived ? "دریافت از" : "ارسال به"}
+                  <Typography
+                    classes={{ root: sharedClasses.text }}
+                    style={{
+                      fontSize: match ? 9 : 16,
+                      color: "#A9A9A9",
+                    }}
+                    component="span"
+                  >
+                    {data.done ? (
+                      data.recived ? (
+                        "دریافت از"
+                      ) : (
+                        "ارسال به"
+                      )
+                    ) : data.recived ? (
+                      <span style={{ color: "#0AB571" }}>درخواست شما از</span>
+                    ) : (
+                      <span style={{ color: "#F93737" }}> درخواست </span>
+                    )}
+                  </Typography>
+                  <Typography
+                    classes={{ root: sharedClasses.text }}
+                    style={{
+                      fontSize: match ? 12 : 20,
+                      color: "#333333",
+                      marginRight: 5,
+                    }}
+                    component="span"
+                  >
+                    {data.from.name}
+                    {!data.done && !data.recived ? (
+                      <span
+                        style={{ fontSize: match ? 9 : 15, color: "#F93737" }}
+                      >
+                        {" "}
+                        از شما{" "}
+                      </span>
+                    ) : null}
+                  </Typography>
                 </Typography>
                 <Typography
-                  classes={{ root: sharedClasses.text }}
-                  style={{
-                    fontSize: match ? 12 : 28,
-                    color: "#333333",
-                    marginRight: 5,
+                  classes={{
+                    root: [sharedClasses.text, sharedClasses.alignRight].join(
+                      " "
+                    ),
                   }}
-                  component="span"
+                  component="p"
+                  style={{
+                    fontSize: match ? 8 : 15,
+                    color: "#969696",
+                    //marginLeft : "3rem",
+                      width : !match ? 150  : 250,
+                      textAlign : !match ?  "center" : "right" ,
+                      textOverflow : "ellipsis" ,
+                      whiteSpace: 'nowrap' ,
+                      overflow: 'hidden' ,
+                  }}
                 >
-                  {data.from.name}
+                  {data.des}
                 </Typography>
-              </Typography>
-              <Typography
-                classes={{
-                  root: [sharedClasses.text, sharedClasses.alignRight].join(
-                    " "
-                  ),
-                }}
-                component="p"
-                style={{
-                  fontSize: match ? 8 : 12,
-                  color: "#969696",
-                }}
-              >
-                {data.des}
-              </Typography>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item>
+        <Grid item  sm={!match ?3  : 0}>
           <Grid
             container
             direction={match ? "column" : "row-reverse"}
             justify="space-between"
+            alignItems="center"
           >
             <Grid>
               <Typography
