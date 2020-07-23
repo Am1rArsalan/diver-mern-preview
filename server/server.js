@@ -53,13 +53,12 @@ class App {
     this.app.use(bodyParser.json());
 
     // implement passport starategies
-    //require("./passport/passport");
-    //require("./passport/passport-jwt");
-
+    require("./passport/passport");
+    require("./passport/passport-jwt");
 
     // passposrt
-    //this.app.use(passport.initialize());
-    //this.app.use(passport.session());
+    this.app.use(passport.initialize());
+    this.app.use(passport.session());
   };
 
   setRoutes = () => {

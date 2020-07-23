@@ -11,7 +11,7 @@ export default function (state = initialState, action) {
       return { ...state, loading: true, error: "" };
     }
     case FETCH_TRANSACTIONS_SUCCESS: {
-      return { ...state, data: action.data, loading: false };
+      return { ...state, data: action.data.transActions, loading: false };
     }
     case FETCH_TRANSACTIONS_FAILED: {
       return { ...state, loading: false, error: action.error };

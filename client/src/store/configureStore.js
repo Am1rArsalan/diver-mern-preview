@@ -2,26 +2,27 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import transActionsReducer from './reducers/transActionsReducer' ;
-import transActionsSaga from './sagas/'
+import authReducer from './reducers/authReducer' ;
+import userReducer from './reducers/userReducer' ;
+import rootSaga from './sagas/index'
 
 
 const reducer = combineReducers({
-   transActions : transActionsReducer
+   transActions : transActionsReducer,
+   auth:authReducer ,
+   user : userReducer  ,
 });
 
 const configureStore = (initState) => {
-
     const sagaMiddleware = createSagaMiddleware();
+
     const composeEnhaunster = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
-
-
 
     const store = createStore(reducer, initState , composeEnhaunster(applyMiddleware(sagaMiddleware)));
 
-    sagaMiddleware.run(transActionsSaga)
+    sagaMiddleware.run(rootSaga)
 
     return store  ;
-
 }
 
 

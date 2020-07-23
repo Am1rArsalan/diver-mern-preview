@@ -7,6 +7,8 @@ import { NavLink } from "react-router-dom";
 import SideBack from "../../assets/toolbar menu.svg";
 import ControlButtons from "../UI/ControlButtons";
 import UserAvatar from "../UI/UserAvatar";
+import { useSelector } from 'react-redux' ;
+
 
 const SmallAvatar = withStyles((theme) => ({
   root: {
@@ -40,6 +42,7 @@ const useSideNavStyles = makeStyles((theme) => ({
 export default function () {
   const classes = useSideNavStyles();
   const sharedClasses = useSharedStyles();
+    const state = useSelector(state => state.user) ;
   return (
     <Grid
       item
@@ -88,7 +91,7 @@ export default function () {
             </Grid>
 
             <Grid item xs={12} className={sharedClasses.text}>
-              امیر احمدزاده
+                {state.user.name}
             </Grid>
 
             <Grid
@@ -99,7 +102,9 @@ export default function () {
                 color: "#969696",
               }}
             >
-              <span> amir@ </span>
+              <span>
+                  {state.user.username}
+              </span>
             </Grid>
           </Grid>
         </Grid>

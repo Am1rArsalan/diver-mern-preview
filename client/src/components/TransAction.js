@@ -118,8 +118,8 @@ export default function ({ data }) {
                   }}
                   component="p"
                   style={{
-                    fontSize: match ? 8 : 15,
-                    color: "#969696",
+                      fontSize: match ? 8 : 15 ,
+                      color: "#969696",
                     //marginLeft : "3rem",
                       width : !match ? 150  : 250,
                       textAlign : !match ?  "center" : "right" ,
