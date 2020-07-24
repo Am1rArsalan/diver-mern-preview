@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useTheme, makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import React  from "react";
+import { useTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Hidden } from "@material-ui/core";
 import appTheme from "../../components/UI/theme";
 import SideNav from "./SideBar";
-import MobileNav from "../UI/MobileNav";
-import Header from "../UI/Header";
+import MobileNav from "./MobileNav";
+import Header from "./Header";
 import useScrollPosition from "../../hooks/useScrollPos";
 import useStyles from '../UI/styles/LayoutStyles' ;
 

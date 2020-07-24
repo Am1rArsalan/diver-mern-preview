@@ -1,5 +1,5 @@
 import React  from "react";
-import { useTheme, makeStyles } from "@material-ui/core/styles";
+import { useTheme} from "@material-ui/core/styles";
 import {
   useMediaQuery,
   Grid,
@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@material-ui/core";
 import useSharedStyles from "../UI/useShareStyles";
-import Plus from "../../assets/main plus.svg";
 import useHeader from '../../hooks/useHeader' ;
 import useStyles from '../UI/styles/AmountStyles' ;
 

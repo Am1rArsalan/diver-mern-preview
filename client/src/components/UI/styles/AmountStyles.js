@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
-import HeaderBack from "../../../assets/prominent header.svg";
+//import HeaderBack from "../../../assets/prominent header.svg";
 import Plus from "../../../assets/main plus.svg";
 
 export default makeStyles((theme) => ({

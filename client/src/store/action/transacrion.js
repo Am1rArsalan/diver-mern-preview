@@ -1,4 +1,4 @@
-import { FETCH_TRANSACTIONS, FETCH_TRANSACTIONS_SUCCESS } from "./actionTypes";
+import { FETCH_TRANSACTIONS  } from "./actionTypes";
 
 export const fetchTransActions = () => {
    return {
@@ -6,8 +6,3 @@ export const fetchTransActions = () => {
    }
 }
 
-//export const fetchTransActionsSuccess = () => {
-  //return (dispatch) => {
-    //dispatch({ type: FETCH_TRANSACTIONS_SUCCESS});
-  //};
-//};

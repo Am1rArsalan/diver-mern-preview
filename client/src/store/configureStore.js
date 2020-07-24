@@ -1,14 +1,14 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import transActionsReducer from './reducers/transActionsReducer' ;
+//import transActionsReducer from './reducers/transActionsReducer' ;
 import authReducer from './reducers/authReducer' ;
 import userReducer from './reducers/userReducer' ;
 import rootSaga from './sagas/index'
 
 
 const reducer = combineReducers({
-   transActions : transActionsReducer,
+   //transActions : transActionsReducer,
    auth:authReducer ,
    user : userReducer  ,
 });

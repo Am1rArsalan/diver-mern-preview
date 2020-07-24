@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(() => ({
   root: {
-    width: 288,
     height: 24,
     borderRadius: 5,
     width: "100%",
@@ -22,3 +21,5 @@ export default makeStyles(() => ({
     left: "50%",
   },
 }));
+
+

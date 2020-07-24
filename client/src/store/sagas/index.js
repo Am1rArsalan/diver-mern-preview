@@ -1,6 +1,8 @@
 //this file should be refactore later **********
 //******Amir*********
-import { put, takeEvery, takeLatest, all } from "redux-saga/effects";
+import { put, takeEvery, all ,
+    //takeLatest
+} from "redux-saga/effects";
 import {
   FETCH_TRANSACTIONS,
   FETCH_TRANSACTIONS_SUCCESS,

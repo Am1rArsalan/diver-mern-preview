@@ -3,17 +3,7 @@ import useSharedStyles from "../UI/useShareStyles";
 import { Grid, Button, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-  size: {
-    width: 40,
-    height: 32,
-    minWidth: 40,
-  },
-  labelSize: {
-    fontSize: 8,
-  },
-}));
+import useStyles from './styles/ControlButtonsStyles' ;
 
 export default function ({ scrolled }) {
   const sharedClasses = useSharedStyles();

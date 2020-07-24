@@ -6,7 +6,7 @@ import {
   Grid,
   Button,
 } from "@material-ui/core";
-import useSharedStyles from "./UI/useShareStyles";
+import useSharedStyles from "../components/UI/useShareStyles";
 
 //const useSittingStyles = makeStyles(() => ({
 //}));

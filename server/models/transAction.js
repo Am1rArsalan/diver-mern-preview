@@ -10,7 +10,7 @@ const transActionSchema = new Schema(
     },
     done: {
       type: Boolean,
-       default : false
+      default: false,
     },
     recived: {
       type: Boolean,
@@ -25,9 +25,17 @@ const transActionSchema = new Schema(
       type: Number,
       required: true,
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "users",
+      required: true,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
+
 
 const TransAction = mongoose.model("transActions", transActionSchema);
 

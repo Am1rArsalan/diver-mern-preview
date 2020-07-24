@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React  from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Hidden } from "@material-ui/core";
 import useSharedStyles from "../UI/useShareStyles";
@@ -8,7 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import SearchBar from "../UI/SearchBar";
 import Amount from "../UI/Amount";
 import useHeader from "../../hooks/useHeader";
-import useHeaderStyles from "./styles/HeaderStyles";
+import useHeaderStyles from "../UI/styles/HeaderStyles";
 
 export default function () {
   const classes = useHeaderStyles();
@@ -42,7 +42,7 @@ export default function () {
             item
             style={{
               paddingTop: 11,
-              margin: match ? 0 : "1.4rem",
+              //margin: match ? 0 : "1.4rem",
               width: "95%",
               margin: "auto",
             }}

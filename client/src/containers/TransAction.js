@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
-  List,
   useMediaQuery,
   ListItem,
   ListItemAvatar,
 } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import UserAvatar from "./UI/UserAvatar";
-import useSharedClasses from "./UI/useShareStyles";
-import SuspenseTransactions from "./UI/SuspenseTransactions";
-import useScrollPos from "../hooks/useScrollPos";
+import UserAvatar from "../components/UI/UserAvatar";
+import useSharedClasses from "../components/UI/useShareStyles";
+import useStyles from '../components/UI/styles/TransActionItemStyles'
 
-const useStyles = makeStyles((theme) => ({
-  listItem: {
-    boxShadow: "0px 0.5px 1.5px rgba(0, 0, 0, 0.15)",
-    height: "5.6rem",
-    [theme.breakpoints.down("xs")]: {
-      marginBottom: 4,
-    },
-    "&:hover": {
-      cursor: "pointer",
-    },
-  },
-}));
 
 function convertToPersian(number) {
   let en_number = number.toString();
@@ -99,7 +85,7 @@ export default function ({ data }) {
                     }}
                     component="span"
                   >
-                    {data.from.name}
+                      {data.from.name}
                     {!data.done && !data.recived ? (
                       <span
                         style={{ fontSize: match ? 9 : 15, color: "#F93737" }}
@@ -149,7 +135,7 @@ export default function ({ data }) {
                   paddingTop: 5,
                 }}
               >
-                {convertToPersian(data.amount)}
+                  {convertToPersian(data.amount)}
               </Typography>
               <Typography
                 classes={{
