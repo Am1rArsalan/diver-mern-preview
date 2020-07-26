@@ -14,5 +14,5 @@ export default makeStyles(() => ({
     fontWeight: "500",
     fontSize: "18px",
   },
-}));
+}), { index :  1});
 

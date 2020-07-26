@@ -1,4 +1,4 @@
-
+// some scss
 @font-face {
     font-family: IRANSans;
     src: url('./assets/FontsFree-Net-ir_sans.ttf');
@@ -76,3 +76,30 @@ code {
 }
 a{ color : white ;text-decoration : none }
 #root { overflow: hidden}
+
+.transActionPlaceHolder  {
+    background: linear-gradient(270deg, #f9f9f9, #c8c8c8);
+    background-size: 400% 400%;
+
+    -webkit-animation: placeHolderAnim 1s ease infinite;
+    -moz-animation: placeHolderAnim 1s ease infinite;
+    animation: placeHolderAnim 1s ease infinite;
+}
+
+@-webkit-keyframes placeHolderAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes placeHolderAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes placeHolderAnim {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+

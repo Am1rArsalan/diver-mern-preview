@@ -32,6 +32,22 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+
+    phone: {
+      type: String,
+      required: true,
+    },
+
+    about: {
+      type: String,
+      required: false,
+    },
+
+    image: {
+      type: String,
+      required: true,
+    },
+
   },
   {
     timestamps: true,

@@ -35,7 +35,7 @@ export default makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       position: "absolute",
       width: "18rem",
-      left: "6px",
+      left: "5rem",
     },
   },
-}));
+}) ,  { index : 1 });

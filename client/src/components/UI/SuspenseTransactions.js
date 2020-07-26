@@ -1,34 +1,30 @@
 import React, { useState, useEffect, Fragment } from "react";
+import {
+  ListItem,
+  ListItemAvatar,
+  Avatar
+} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import useStyles from "../UI/styles/TransActionItemStyles";
+
 
 function Placeholder() {
-  return (
-    <div
-      style={{
-        margin: "0 5px",
-        boxShadow: "0 2px 4px #ccc",
-        paddingTop: "10px",
-        width:"20%"
-      }}
-    >
-      <div
-        style={{
-          border: "2px solid #caca",
-          backgroundColor: "#eee",
-        }}
-      >
-        {" "}
+  const classes = useStyles();
 
-          Place Holder Will Come Here
-      </div>
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "150px",
-          marginTop: "10px",
-        }}
-      ></div>
-    </div>
+
+  return (
+    <ListItem classes={{ root: classes.listItem }}>
+      <ListItemAvatar>
+       <Avatar
+         alt="Travis Howard"
+         className="transActionPlaceHolder"
+         style={{
+            color : "transparent"
+         }}
+        />
+      </ListItemAvatar>
+        <Grid container justify="space-between" alignItems="center" className="transActionPlaceHolder" style={{ borderRadius :"2rem" , color :"transparent"}}> ""</Grid>
+    </ListItem>
   );
 }
 

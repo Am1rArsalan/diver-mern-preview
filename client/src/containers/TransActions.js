@@ -24,16 +24,27 @@ export default function () {
 
   return (
     <>
+      {/*
       <Hidden smDown>
-        <Grid xs={12} style={{ backgroundColor: "red" }}>
-            <List style={{ display  :"flex"}}>
-              <ListItem> تراکنش  </ListItem>
-              <ListItem> توضیحات  </ListItem>
-              <ListItem>تاریخ </ListItem>
-              <ListItem>مبلغ </ListItem>
-            </List>
+        <Grid xs={12}>
+             This List Styles Hard Coded And Will be Change !
+          <List className={classes.list}>
+            <ListItem className={classes.listItem}>
+                <span className={[classes.listItemText]} style={{ right : "5rem" }}>تراکنش</span>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <span className={classes.listItemText}   style={{ left : "2rem" }}>توضیحات </span>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <span className={classes.listItemText} style={{ left : "-2rem" }} >تاریخ </span>
+            </ListItem>
+            <ListItem className={classes.listItem}>
+              <span className={classes.listItemText}  style={{ left : "3rem" }} >مبلغ </span>
+            </ListItem>
+          </List>
         </Grid>
       </Hidden>
+*/}
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <div className={classes.demo}>

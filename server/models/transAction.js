@@ -8,10 +8,15 @@ const transActionSchema = new Schema(
       ref: "users",
       required: true,
     },
-    done: {
+    // is a transaction or request
+    req : {
       type: Boolean,
       default: false,
     },
+    accepted : {
+        type : Boolean ,
+      default : false ,
+    } ,
     recived: {
       type: Boolean,
       required: true,
@@ -21,10 +26,12 @@ const transActionSchema = new Schema(
       type: String,
       required: true,
     },
+
     amount: {
       type: Number,
       required: true,
     },
+
     user: {
       type: Schema.Types.ObjectId,
       ref: "users",

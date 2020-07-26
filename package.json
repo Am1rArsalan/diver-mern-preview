@@ -4,9 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node setup.js",
-    "dev": "nodemon setup.js"
+    "start": "npm run build:frontend &&  node server/setup.js ",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start:frontend\"" ,
+    "start:backend": "nodemon server/setup.js",
+    "start:frontend": "npm run start --prefix client",
+    "build:frontend" : "npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4" ,
+    "concurrently": "^4.1.0"
   }
 }

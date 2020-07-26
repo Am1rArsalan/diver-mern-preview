@@ -1,8 +1,8 @@
 import {  makeStyles  } from '@material-ui/core/styles'
 import HeaderBack from "../../../assets/prominent header.svg";
 
-
-export default  makeStyles((theme) => ({
+//HeaderStyles
+export default makeStyles((theme) => ({
   header: {
     height: 96,
     background: `url("${HeaderBack}")`,
@@ -37,4 +37,7 @@ export default  makeStyles((theme) => ({
       boxShadow: "0 2px 4px #aaa",
     },
   },
-}));
+}) , { index : 1 }  );
+
+
+

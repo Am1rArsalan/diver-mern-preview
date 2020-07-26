@@ -4,11 +4,12 @@ import CameraSvg from "../../assets/camera.svg";
 import useSharedStyles from "./useShareStyles";
 import UserAvatar from "./UserAvatar";
 import SmallAvatar from "./SmallAvatar";
-import PropTypes from 'prop-types' ;
+import PropTypes from "prop-types";
 
-
-function UserInfo({ name, username }) {
+//UserInfo
+function UserInfo({ name, username, image }) {
   const sharedClasses = useSharedStyles();
+
   return (
     <Grid style={{ marginBottom: "2.1rem" }} item position="relative">
       <Grid
@@ -27,7 +28,7 @@ function UserInfo({ name, username }) {
               }}
               badgeContent={<SmallAvatar alt="Remy Sharp" src={CameraSvg} />}
             >
-              <UserAvatar width={100} height={100} />
+              <UserAvatar width={100} height={100}  src={image} />
             </Badge>
           </Grid>
         </Grid>
@@ -51,16 +52,16 @@ function UserInfo({ name, username }) {
   );
 }
 
-
-
 UserInfo.defaultProps = {
-    name : "" , username : ""
+  name: "",
+  username: "",
+  image: "",
 };
 
 UserInfo.propTypes = {
-  name : PropTypes.string,
-  username : PropTypes.string,
+  name: PropTypes.string,
+  username: PropTypes.string,
+  image : PropTypes.string ,
 };
 
-export default UserInfo ;
-
+export default UserInfo;

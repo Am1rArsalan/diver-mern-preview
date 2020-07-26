@@ -7,7 +7,7 @@ export default createMuiTheme({
   palette: {
     common: {
       green: myGreen,
-      orange: myBlue,
+      blue: myBlue,
         white : "#FFFFFF"
     },
     primary: {

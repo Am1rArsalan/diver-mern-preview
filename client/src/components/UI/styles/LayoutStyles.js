@@ -6,8 +6,6 @@ export default makeStyles((theme) => ({
     direction: "rtl",
     //height: "100vh",
     [theme.breakpoints.up("md")]: {
-      width: "95%",
-      margin: "auto",
       marginTop: "1.5rem",
       overflow: "hidden",
       height: "95vh",
@@ -23,4 +21,4 @@ export default makeStyles((theme) => ({
     height: "100%",
   },
   contentArea: { maxWidth: "99" },
-}));
+}), { index : 1 });

@@ -6,7 +6,7 @@ const useSharedStyles = makeStyles((theme) => ({
     boxShadow: "1.5px 1.5px 1.5px rgba(0, 0, 0, 0.25)",
     borderRadius: "10px",
     color: theme.palette.common.white,
-    position: "relative",
+    //position: "relative",
     [theme.breakpoints.down("sm")]: {
       borderRadius: 0,
     },
@@ -55,6 +55,7 @@ const useSharedStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.green ,
   },
   blueButton: {
+      //
     backgroundColor: theme.palette.common.blue,
   },
   buttonLabel: {
@@ -75,6 +76,6 @@ const useSharedStyles = makeStyles((theme) => ({
 
   alignLeft: { textAlign: "left" },
   alignRight: { textAlign: "right" },
-}));
+}), { index: 1 });
 
 export default useSharedStyles;

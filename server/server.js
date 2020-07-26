@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const cors = require("cors");
 const config = require("./config/");
+const path = require("path");
 
 // App Class
 class App {
@@ -19,7 +20,7 @@ class App {
     this.setRoutes();
 
     // react application
-    //this.setReactClient();
+    this.setReactClient();
   }
 
   setExpress = () => {
@@ -37,9 +38,8 @@ class App {
         console.log("connected to db");
       }
     });
-    require("./models/user") ;
-    require("./models/transAction") ;
-
+    require("./models/user");
+    require("./models/transAction");
   };
 
   setConfig = () => {
@@ -48,7 +48,7 @@ class App {
     // set the static routes
     this.app.use(express.static("public"));
 
-   // config body parser
+    // config body parser
     this.app.use(bodyParser.urlencoded({ extended: false }));
     this.app.use(bodyParser.json());
 
@@ -66,12 +66,12 @@ class App {
   };
 
   // react applications ui !!
-  //setReactClient() {
-      //this.app.use(express.static(path.join(__dirname, "client/build")));
-      //this.app.get("*", (req, res) => {
-      //res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  //});
-  //}
+  setReactClient() {
+    this.app.use(express.static(path.join(__dirname, "/../client/build")));
+    this.app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname + "/../client/build/index.html"));
+    });
+  }
 }
 
 module.exports = App;

@@ -13,7 +13,7 @@ export default function() {
     if (showSerchBar && scrolled) {
       scroll.scrollTo(2.2);
     }
-  }, [showSerchBar]);
+  }, [showSerchBar , scrolled]);
 
   function toggleShowSearchBar() {
     setSearchBar(!showSerchBar);

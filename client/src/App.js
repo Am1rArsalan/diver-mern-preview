@@ -5,24 +5,30 @@ import Setting from "./containers/Setting";
 import Contacts from "./containers/Contacts";
 import Home from "./containers/TransActions";
 import { useDispatch } from "react-redux";
-import {  getUserData , authenticate  } from './store/action';
+import { getUserData, authenticate } from "./store/action";
+import apptheme from "./components/UI/theme";
 
+import {
+    ThemeProvider
+} from "@material-ui/core/styles";
 
 export default function () {
-  const dispatch = useDispatch() ;
+  const dispatch = useDispatch();
   useEffect(() => {
-     //will be change after implementing authentication in the frontEnd
-     dispatch(authenticate())
-     dispatch(getUserData())
+    //will be change after implementing authentication in the frontEnd
+    dispatch(authenticate());
+    dispatch(getUserData());
   }, []);
 
   return (
-    <Layout>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/setting" exact component={Setting} />
-        <Route exact path="/contacts" component={Contacts} />
-      </Switch>
-    </Layout>
+        <ThemeProvider theme={apptheme}>
+          <Layout>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/setting" component={Setting} />
+              <Route exact path="/contacts" component={Contacts} />
+            </Switch>
+          </Layout>
+        </ThemeProvider>
   );
 }

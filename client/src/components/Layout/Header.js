@@ -10,6 +10,8 @@ import Amount from "../UI/Amount";
 import useHeader from "../../hooks/useHeader";
 import useHeaderStyles from "../UI/styles/HeaderStyles";
 
+
+// Header
 export default function () {
   const classes = useHeaderStyles();
   const sharedClasses = useSharedStyles();
@@ -22,7 +24,7 @@ export default function () {
     scrolled && match ? classes.headerScrolled : classes.headerScrollTop;
 
   return (
-    <Grid conatiner={match} direction="row">
+    <Grid conatiner={match} direction="row"  style={{ marginBottom : !match ? 16 : 0  }}  >
       <Grid
         xs={12}
         item

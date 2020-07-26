@@ -20,6 +20,6 @@ export default makeStyles(() => ({
     marginLeft: "-140px",
     left: "50%",
   },
-}));
+}),  { index : 1 }  );
 
 
