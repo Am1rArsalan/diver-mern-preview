@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 import HomeIcon from './../UI/icons/HomeIcon' ;
 import SettingIcon from './../UI/icons/SettingIcon' ;
 import ContactIcon from './../UI/icons/SettingIcon' ;
-
+import { Link } from "@reach/router";
 
 const useMobileNavStyles = makeStyles({
   root: {
@@ -30,16 +30,16 @@ export default function() {
       showLabels
       classes={{ root  : classes.root}}
     >
-      <NavLink to="/setting">
+      <Link to="/setting">
         <BottomNavigationAction label="مخاطبین" icon={<ContactIcon />} />
-      </NavLink>
-      <NavLink to="/">
+      </Link>
+      <Link to="/">
         <BottomNavigationAction label="تراکنش ها" icon={<HomeIcon />} />
-      </NavLink>
+      </Link>
 
-      <NavLink to="/contacts">
+      <Link to="/contacts">
         <BottomNavigationAction label="scacasca" icon={<SettingIcon />} />
-      </NavLink>
+      </Link>
     </BottomNavigation>
   );
 }

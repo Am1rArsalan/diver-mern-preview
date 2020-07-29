@@ -6,7 +6,7 @@ function authMiddleWare(req, res, next) {
     if (err || !user)
       return res.status(401).json({
         data: info.message || "اجازه دسترسی ندارید",
-        status: "error",
+        status: false ,
       });
 
     req.user = user;

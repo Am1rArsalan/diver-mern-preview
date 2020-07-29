@@ -1,8 +1,8 @@
 // some scss
 @font-face {
-    font-family: IRANSans;
-    src: url('./assets/FontsFree-Net-ir_sans.ttf');
-    font-weight: normal;
+  font-family: IRANSans;
+  src: url("./assets/FontsFree-Net-ir_sans.ttf");
+  font-weight: normal;
 }
 
 @mixin respond($break-point) {
@@ -44,7 +44,7 @@
 
 * {
   //@include respond(land-tab) {
-     font-family: IRANSans;
+  font-family: IRANSans;
   //}
 }
 
@@ -52,15 +52,15 @@ html {
   //font-size: 62.5%; // 1rem = 10px ;   10/16  * 100   =
   //box-sizing: inherit;
   //@include respond(land-tab) {
-    //font-size: 56.25%; // 1rem=9px 9/16 *100
+  //font-size: 56.25%; // 1rem=9px 9/16 *100
   //}
-//
+  //
   //@include respond(port-tab) {
-    //font-size: 50%; //   1rem=8px (8/16) *100
+  //font-size: 50%; //   1rem=8px (8/16) *100
   //}
-//
+  //
   //@include respond(large-desktop) {
-    //font-size: 75%; // 1rem = 12px
+  //font-size: 75%; // 1rem = 12px
   //}
 }
 
@@ -70,36 +70,63 @@ body {
   direction: rtl;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  color: white;
+  text-decoration: none;
 }
-a{ color : white ;text-decoration : none }
-#root { overflow: hidden}
+#root {
+  overflow: hidden;
+}
 
-.transActionPlaceHolder  {
-    background: linear-gradient(270deg, #f9f9f9, #c8c8c8);
-    background-size: 400% 400%;
+.transActionPlaceHolder {
+  background: linear-gradient(270deg, #f9f9f9, #c8c8c8);
+  background-size: 400% 400%;
 
-    -webkit-animation: placeHolderAnim 1s ease infinite;
-    -moz-animation: placeHolderAnim 1s ease infinite;
-    animation: placeHolderAnim 1s ease infinite;
+  -webkit-animation: placeHolderAnim 1s ease infinite;
+  -moz-animation: placeHolderAnim 1s ease infinite;
+  animation: placeHolderAnim 1s ease infinite;
 }
 
 @-webkit-keyframes placeHolderAnim {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @-moz-keyframes placeHolderAnim {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @keyframes placeHolderAnim {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+.fade-enter .page {
+  opacity: 0;
+  z-index: 1;
+}
 
+.fade-enter.fade-enter-active .page {
+  opacity: 1;
+  transition: opacity 450ms ease-in;
+}

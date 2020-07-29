@@ -6,15 +6,7 @@ import { useSelector } from "react-redux";
 import useStyles from "../UI/styles/SideBarStyles";
 import UserInfo from "../UI/UserInfo";
 import SideNavigationList from "../UI/SideNavigation";
-import LetSuspense from "../UI/SuspenseTransactions";
 
-function UserInfoPlaceholder() {
-  return "this is Loadinglmcklasmcklasmcklmas";
-}
-
-function Placeholder() {
-  return <UserInfoPlaceholder />;
-}
 export default function () {
   const classes = useStyles();
   const sharedClasses = useSharedStyles();
@@ -39,7 +31,7 @@ export default function () {
         justify="space-evenly"
       >
         {/*   Better To path this with object but done with this approach  */}
-        <UserInfo
+       <UserInfo
           name={state.user ? state.user.data.name : "....."}
           username={state.user ? state.user.data.username : "....."}
           image={state.user ? state.user.data.image : "....."}

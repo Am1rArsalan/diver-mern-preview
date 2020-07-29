@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const config = require("../../config")
+const config = require("../../config") ;
+
 async function login(req, res, next) {
   passport.authenticate(
     "my-login-strategy",

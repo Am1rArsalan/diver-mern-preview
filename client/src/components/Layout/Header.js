@@ -9,6 +9,7 @@ import SearchBar from "../UI/SearchBar";
 import Amount from "../UI/Amount";
 import useHeader from "../../hooks/useHeader";
 import useHeaderStyles from "../UI/styles/HeaderStyles";
+import {useSelector} from "react-redux";
 
 
 // Header
@@ -23,6 +24,7 @@ export default function () {
   let headerClasse =
     scrolled && match ? classes.headerScrolled : classes.headerScrollTop;
 
+  let state =  useSelector(state => state.user ) ;
   return (
     <Grid conatiner={match} direction="row"  style={{ marginBottom : !match ? 16 : 0  }}  >
       <Grid
@@ -81,7 +83,9 @@ export default function () {
               ) : null}
 
               <Grid item>
-                <Amount />
+                <Amount
+                    amount={state.user ? state.user.data.amount: "Loading....."}
+                  />
               </Grid>
             </Grid>
           </Grid>
