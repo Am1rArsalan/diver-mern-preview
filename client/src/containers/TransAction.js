@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
 import {
   useMediaQuery,
   ListItem,
@@ -12,23 +12,16 @@ import UserAvatar from "../components/UI/UserAvatar";
 import useSharedClasses from "../components/UI/useShareStyles";
 import useStyles from "../components/UI/styles/TransActionItemStyles";
 import propTypes from "prop-types";
+import { convertToPersainDate  } from '../helpers/' ;
+import PersianCurrency from '../components/UI/PersianCurrency' ;
 
-function convertToPersian(number) {
-  let en_number = number.toString();
-  let persianDigits = "۰۱۲۳۴۵۶۷۸۹";
-  let persianMap = persianDigits.split("");
-  return en_number.replace(/\d/g, function (m) {
-    return persianMap[parseInt(m)];
-  });
-}
 
 function TransAction({ data }) {
   const classes = useStyles();
   const sharedClasses = useSharedClasses();
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
-  const matchMd = useMediaQuery(theme.breakpoints.down("md"));
-
+  const matchXs = useMediaQuery(theme.breakpoints.down("xs"));
 
   return (
     <ListItem classes={{ root: classes.listItem }}>
@@ -36,17 +29,17 @@ function TransAction({ data }) {
         <UserAvatar />
       </ListItemAvatar>
       <Grid container justify="space-between" alignItems="center">
-          <Grid item sm={!match ? 8 : 0} md={8}  style={{ width : "64%"}} >
+        <Grid item sm={!match ? 8 : 0} md={7} >
           <Grid
             container
-            direction={match ? "column" : "row-reverse"}
+            direction={matchXs ? "column" : "row-reverse"}
             justify="space-between"
           >
             <Grid item style={{ width: "100%" }}>
               <Grid
-                container={!match}
+                container={!matchXs}
                 alignItems="center"
-                justify="space-between"
+                justify="flex-start"
               >
                 <Grid>
                   <Typography
@@ -65,29 +58,39 @@ function TransAction({ data }) {
                       }}
                       component="span"
                     >
-                      {!data.req ? (
-                        data.recived ? (
-                          "دریافت از"
+                      {data.user !== data.from._id ? (
+                        !data.req ? (
+                          data.recived ? (
+                            "دریافت از"
+                          ) : (
+                            "ارسال به"
+                          )
+                        ) : data.recived ? (
+                          <span style={{ color: "#0AB571" }}>
+                            درخواست شما از
+                          </span>
                         ) : (
-                          "ارسال به"
+                          <span style={{ color: "#F93737" }}> درخواست </span>
                         )
                       ) : data.recived ? (
-                        <span style={{ color: "#0AB571" }}>درخواست شما از</span>
+                        "شارژ دایور "
                       ) : (
-                        <span style={{ color: "#F93737" }}> درخواست </span>
+                        "برداشت از دایور"
                       )}
                     </Typography>
                     <Typography
                       classes={{ root: sharedClasses.text }}
                       style={{
-                        fontSize: match ? 12 : 20,
+                        fontSize: match ? 12 : 17,
                         color: "#333333",
                         marginRight: 5,
                       }}
                       component="span"
                     >
-                      {data.from.name}
-                      {data.req && !data.recived ? (
+                      {data.user !== data.from._id ? data.from.name : ""}
+                      {data.req &&
+                      !data.recived &&
+                      data.user !== data.from._id ? (
                         <>
                           <span
                             style={{
@@ -102,14 +105,13 @@ function TransAction({ data }) {
                       ) : null}
                     </Typography>
                   </Typography>
-
                   <Hidden smDown>
                     {data.req ? (
                       data.accepted ? (
                         <span
                           className={classes.reqBadge}
                           style={{
-                              background :"#0AB571" ,
+                            background: "#0AB571",
                           }}
                         >
                           پذیرفته شد
@@ -118,10 +120,10 @@ function TransAction({ data }) {
                         <span
                           className={classes.reqBadge}
                           style={{
-                              background :"#F93737" ,
+                            background: "#F93737",
                           }}
                         >
-                            رد شد
+                          رد شد
                         </span>
                       )
                     ) : null}
@@ -137,7 +139,6 @@ function TransAction({ data }) {
                   style={{
                     fontSize: match ? 8 : 15,
                     color: "#969696",
-                    //marginLeft : "3rem",
                     width: !match ? 150 : 250,
                     textAlign: !match ? "center" : "right",
                     textOverflow: "ellipsis",
@@ -151,7 +152,8 @@ function TransAction({ data }) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item sm={!match ? 3 : 0} md={3}>
+
+        <Grid item sm={!match ? 3 : 0} md={5}>
           <Grid
             container
             direction={match ? "column" : "row-reverse"}
@@ -159,15 +161,9 @@ function TransAction({ data }) {
             alignItems="center"
           >
             <Grid>
-              <Typography
-                classes={{ root: sharedClasses.text }}
-                style={{
-                  fontSize: match ? 18 : 25,
-                  paddingTop: 5,
-                }}
-              >
-                {convertToPersian(data.amount)}
-              </Typography>
+               <PersianCurrency
+                  amount={data.amount}
+               />
               <Typography
                 classes={{
                   root: [sharedClasses.text, sharedClasses.alignLeft].join(" "),
@@ -182,11 +178,12 @@ function TransAction({ data }) {
                 تومان{" "}
               </Typography>
             </Grid>
+
             <Grid>
               <Typography
                 classes={{
                   root: [
-                    //sharedClasses.text,
+                    sharedClasses.text,
                     sharedClasses.alignLeft,
                   ].join(" "),
                 }}
@@ -196,9 +193,9 @@ function TransAction({ data }) {
                   color: "#969696;",
                 }}
               >
-                ۱۲:۳۲
+                {convertToPersainDate(data.createdAt)}
               </Typography>
-             </Grid>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -207,15 +204,15 @@ function TransAction({ data }) {
 }
 
 TransAction.propTypes = {
-    data : {
-        recived:true   ,
-        req : false ,
-        accepted : false ,
-        des : "" ,
-        from : {
-            name : ""
-        }
-    }
+  data: {
+    recived: true,
+    req: false,
+    accepted: false,
+    des: "",
+    from: {
+      name: "",
+    },
+  },
 };
 
 TransAction.propTypes = {

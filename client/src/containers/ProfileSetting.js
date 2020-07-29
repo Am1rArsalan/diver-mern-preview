@@ -1,27 +1,9 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import { Grid, TextField } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import useSharedStyles from "../components/UI/useShareStyles";
 import { useSelector } from "react-redux";
 import { Field, reduxForm } from "redux-form";
+import useProfileSettingStyles  from '../components/UI/styles/ProfileSettingStyles' ;
 
-const useProfileSettingStyles = makeStyles(
-  (theme) => ({
-    myClass: {
-      "& label": {
-        //right: "-20rem" ,
-        top: 11,
-        fontSize: 14,
-        textAlign: "right",
-        width: "19rem",
-      },
-      "& input": {
-          fontSize: 14
-      },
-    },
-  }),
-  { index: 1 }
-);
 
 function ProfileSetting() {
   const classes = useProfileSettingStyles();

@@ -11,7 +11,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import { BsCardList } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
-import { Link  } from "react-router-dom";
+//import { Link  } from "react-router-dom";
 import {
   IoMdContact,
   IoMdLogOut,
@@ -19,7 +19,7 @@ import {
 } from "react-icons/io";
 import useSharedStyles from "../components/UI/useShareStyles";
 import ControllButtons from "../components/UI/ControlButtons";
-
+import { Link } from '@reach/router' ;
 
 const useSettingItemStyles = makeStyles(
   (theme) => ({
@@ -84,33 +84,35 @@ export default function ({ handleShowContent }) {
                   showContent={handleShowContent}
                   text="کد QR"
                   icon={<IoIosCamera size="2em" />}
-                  link="/setting/qrCode"
+                  link="qrCode"
                 />
                 <SettingMenuItem
                   text="کارتهای من"
                   showContent={handleShowContent}
                   icon={<BsCardList size="2em" />}
-                  link="/setting/myCards"
+                  link="myCards"
                 />
                 <SettingMenuItem
                   text="پروفایل"
                   icon={<IoMdContact size="2em" />}
                   showContent={handleShowContent}
-                  link="/setting/profile"
+                  link="profile"
                 />
                 <SettingMenuItem
                   text="تنظیمات پیشرفته "
                   icon={<FiSettings size="2em" />}
                   showContent={handleShowContent}
-                  link="/setting/advanceSetting"
+                  link="advanceSetting"
                 />
                 <SettingMenuItem
                   text="دربارهی ما"
                   icon={<IoMdLogOut size="2em" />}
                   showContent={handleShowContent}
-                  link="/setting/logout"
+                  link="logout"
                 />
-                <SettingMenuItem text="خروج" icon={<IoMdLogOut size="2em" />} />
+                <SettingMenuItem
+                  link="logout"
+                  text="خروج" icon={<IoMdLogOut size="2em" />} />
               </List>
             </Grid>
           </Grid>

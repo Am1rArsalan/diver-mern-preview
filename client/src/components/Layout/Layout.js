@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { useTheme, ThemeProvider } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Hidden } from "@material-ui/core";
 import appTheme from "../../components/UI/theme";
@@ -6,8 +6,10 @@ import SideNav from "./SideBar";
 import MobileNav from "./MobileNav";
 import Header from "./Header";
 import useScrollPosition from "../../hooks/useScrollPos";
-import useStyles from '../UI/styles/LayoutStyles' ;
+import useStyles from "../UI/styles/LayoutStyles";
 
+
+// Layout
 export default function ({ children }) {
   const classes = useStyles();
   const theme = useTheme();
@@ -22,12 +24,6 @@ export default function ({ children }) {
         justify="space-around"
         //alignItems="center"
         //spacing={4}
-        style={
-          {
-            //width: '95%' ,
-            //margin: 'auto' ,
-          }
-        }
       >
         <Hidden smDown>
           <SideNav />
@@ -47,4 +43,3 @@ export default function ({ children }) {
     </ThemeProvider>
   );
 }
-

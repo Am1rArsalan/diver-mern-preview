@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function (){
    return (
-     <div>
+     <div className="page">
         <h1> contacts    </h1>
      </div>
    )

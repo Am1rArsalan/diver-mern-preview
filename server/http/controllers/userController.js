@@ -7,7 +7,7 @@ function getData(req, res){
     .populate({
       path: "transActions",
         populate:{
-            path : "from" ,
+            path : "from" , // { name : "" , image }
             ref : "users" ,
             select:'name image'
         }
@@ -22,6 +22,7 @@ function getData(req, res){
           email : foundedUser.email ,
           image : foundedUser.image  ,
           transActions: foundedUser.transActions,
+            amount : foundedUser.amount
         },
         status: true,
       });

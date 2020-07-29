@@ -14,3 +14,6 @@ export default withStyles(() => ({
     },
   },
 }))(Avatar);
+
+//camera
+
