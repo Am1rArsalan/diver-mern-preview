@@ -1,6 +1,9 @@
 //middlewares
 const passport = require("passport");
 
+
+
+// authenticate middleware !!
 function authMiddleWare(req, res, next) {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
     if (err || !user)
