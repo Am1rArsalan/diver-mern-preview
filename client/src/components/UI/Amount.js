@@ -1,5 +1,5 @@
 import React  from "react";
-import { useTheme} from "@material-ui/core/styles";
+import { useTheme  } from "@material-ui/core/styles";
 import {
   useMediaQuery,
   Grid,
@@ -9,9 +9,10 @@ import {
 import useSharedStyles from "../UI/useShareStyles";
 import useHeader from '../../hooks/useHeader' ;
 import useStyles from '../UI/styles/AmountStyles' ;
+import PersianCurrency from './PersianCurrency' ;
 
 
-export default function() {
+export default function({ amount  }) {
   const classes = useStyles();
   const sharedClasses = useSharedStyles();
   const theme = useTheme();
@@ -45,8 +46,10 @@ export default function() {
             transform: matchXs ? (scrolled ? "translateY(5px)" : "") : "",
           }}
         >
-          {" "}
-          ۳۵۰.۰۰۰.۰۰۰{" "}
+
+           <PersianCurrency
+               amount={amount ? amount : 0 }
+             />
         </Typography>
         <Typography
           classes={{

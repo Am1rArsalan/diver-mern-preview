@@ -17,13 +17,9 @@ const rootReducer = combineReducers({
 
 const configureStore = (initState) => {
     const sagaMiddleware = createSagaMiddleware();
-
     const composeEnhaunster = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
-
     const store = createStore(rootReducer, initState , composeEnhaunster(applyMiddleware(sagaMiddleware)));
-
     sagaMiddleware.run(rootSaga)
-
     return store  ;
 }
 

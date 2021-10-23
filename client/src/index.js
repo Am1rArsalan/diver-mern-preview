@@ -3,10 +3,9 @@ import ReactDOM from 'react-dom' ;
 import './index.scss';
 import App from './App' ;
 
-
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import { BrowserRouter } from 'react-router-dom';
+//import { BrowserRouter } from 'react-router-dom';
 
 //store (redux stroe)
 const store = configureStore();
@@ -16,9 +15,7 @@ const store = configureStore();
 function ReduxWrappedApp() {
   return (
     <Provider store={store}>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
     </Provider>
   )
 }

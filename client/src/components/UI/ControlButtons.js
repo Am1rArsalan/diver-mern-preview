@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
+import React  from "react";
 import useSharedStyles from "../UI/useShareStyles";
 import { Grid, Button, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/core/styles";
-import useStyles from "./styles/ControlButtonsStyles";
 import propTypes from "prop-types";
 
 //
@@ -11,7 +9,6 @@ function ControlButtons({ scrolled, blueText, greenText, setting }) {
   const sharedClasses = useSharedStyles();
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
-  const classes = useStyles();
 
   let styles = {};
 
