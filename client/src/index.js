@@ -1,33 +1,19 @@
-import React from 'react' ;
-import ReactDOM from 'react-dom' ;
-import './index.scss';
-import App from './App' ;
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import App from "./App";
 
-import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
-//import { BrowserRouter } from 'react-router-dom';
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 
-//store (redux stroe)
 const store = configureStore();
-
-
 
 function ReduxWrappedApp() {
   return (
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
-  )
+  );
 }
 
-
-
-
-ReactDOM.render(
-  <ReduxWrappedApp/>
-  , document.getElementById('root'));
-
-
-
-
-
+ReactDOM.render(<ReduxWrappedApp />, document.getElementById("root"));

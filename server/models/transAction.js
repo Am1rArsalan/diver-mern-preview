@@ -8,20 +8,18 @@ const transActionSchema = new Schema(
       ref: "users",
       required: true,
     },
-    // is a transaction or request
-    req : {
+    req: {
       type: Boolean,
       default: false,
     },
-    accepted : {
-        type : Boolean ,
-      default : false ,
-    } ,
-    recived: {
+    accepted: {
+      type: Boolean,
+      default: false,
+    },
+    received: {
       type: Boolean,
       required: true,
     },
-
     des: {
       type: String,
       required: true,
@@ -31,7 +29,6 @@ const transActionSchema = new Schema(
       type: Number,
       required: true,
     },
-
     user: {
       type: Schema.Types.ObjectId,
       ref: "users",
@@ -42,7 +39,6 @@ const transActionSchema = new Schema(
     timestamps: true,
   }
 );
-
 
 const TransAction = mongoose.model("transActions", transActionSchema);
 

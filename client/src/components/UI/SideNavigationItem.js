@@ -3,18 +3,16 @@ import useSharedStyles from "./useShareStyles";
 import useStyles from "./styles/SideBarStyles";
 import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
-import { Link , Match } from "@reach/router";
+import { Link } from "@reach/router";
 
 const NavLink = (props) => (
   <Link
     {...props}
     getProps={({ isCurrent }) => {
-      // the object returned here is passed to the
-      // anchor element's props
       return {
         style: {
-            ontWeight :  isCurrent ? "bolder": 100  ,
-            fontSize : isCurrent ? 18 : 14
+          ontWeight: isCurrent ? "bolder" : 100,
+          fontSize: isCurrent ? 18 : 14,
         },
       };
     }}

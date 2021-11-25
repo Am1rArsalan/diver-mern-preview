@@ -1,14 +1,14 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
-const myGreen =  '#0AB571' ;
-const myBlue =  '#334CD2' ;
+const myGreen = "#0AB571";
+const myBlue = "#334CD2";
 
 export default createMuiTheme({
   palette: {
     common: {
       green: myGreen,
       blue: myBlue,
-        white : "#FFFFFF"
+      white: "#FFFFFF",
     },
     primary: {
       main: myBlue,

@@ -6,7 +6,6 @@ import UserAvatar from "./UserAvatar";
 import SmallAvatar from "./SmallAvatar";
 import PropTypes from "prop-types";
 
-//UserInfo
 function UserInfo({ name, username, image }) {
   const sharedClasses = useSharedStyles();
 
@@ -28,15 +27,13 @@ function UserInfo({ name, username, image }) {
               }}
               badgeContent={<SmallAvatar alt="Remy Sharp" src={CameraSvg} />}
             >
-              <UserAvatar width={100} height={100}  src={image} />
+              <UserAvatar width={100} height={100} src={image} />
             </Badge>
           </Grid>
         </Grid>
-
         <Grid item xs={12} className={sharedClasses.text}>
           {name}
         </Grid>
-
         <Grid
           item
           xs={12}
@@ -61,7 +58,7 @@ UserInfo.defaultProps = {
 UserInfo.propTypes = {
   name: PropTypes.string,
   username: PropTypes.string,
-  image : PropTypes.string ,
+  image: PropTypes.string,
 };
 
 export default UserInfo;

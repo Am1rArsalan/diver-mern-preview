@@ -1,14 +1,9 @@
-import React from 'react' ;
-import {
-  useMediaQuery,
-} from "@material-ui/core";
+import React from "react";
+import { useMediaQuery } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import useSharedClasses from "./useShareStyles";
-import {
-    toPersianNum , currencyFormat
-} from '../../helpers/' ;
-
+import { toPersianNum, currencyFormat } from "../../helpers/";
 
 export default function PersianCurrency({ amount }) {
   const theme = useTheme();
@@ -21,12 +16,11 @@ export default function PersianCurrency({ amount }) {
         root: sharedClasses.text,
       }}
       style={{
-       fontSize: match ? 18 : 25,
+        fontSize: match ? 18 : 25,
         paddingTop: 5,
       }}
     >
-        {toPersianNum(currencyFormat(amount))}
+      {toPersianNum(currencyFormat(amount))}
     </Typography>
   );
 }
-

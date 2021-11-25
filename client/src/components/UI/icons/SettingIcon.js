@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { SvgIcon } from "@material-ui/core";
 
-const SettingIcon = props => {
+const SettingIcon = (props) => {
   return (
     <SvgIcon
       width={props.width}
@@ -39,7 +39,7 @@ SettingIcon.defaultProps = {
   color: "#333333",
   backgroundColor: "#FAFAFA",
   width: 24,
-  height: 24
+  height: 24,
 };
 
 SettingIcon.propTypes = {
@@ -47,5 +47,5 @@ SettingIcon.propTypes = {
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
   width: PropTypes.number,
-  height: PropTypes.number
+  height: PropTypes.number,
 };

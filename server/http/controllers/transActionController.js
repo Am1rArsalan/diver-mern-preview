@@ -1,4 +1,4 @@
-const TransAction  = require("../../models/transAction");
+const TransAction = require("../../models/transAction");
 
 async function getAllTransActions(req, res) {
   try {
@@ -33,4 +33,4 @@ async function createTransAction(req, res) {
   }
 }
 
-module.exports  = {  getAllTransActions , createTransAction }
+module.exports = { getAllTransActions, createTransAction };

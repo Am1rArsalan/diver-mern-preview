@@ -1,16 +1,15 @@
 const user = require("../../models/user");
 
-
-function getData(req, res){
+function getData(req, res) {
   user
     .findById(req.user._id)
     .populate({
       path: "transActions",
-        populate:{
-            path : "from" , // { name : "" , image }
-            ref : "users" ,
-            select:'name image'
-        }
+      populate: {
+        path: "from",
+        ref: "users",
+        select: "name image",
+      },
     })
     .then((foundedUser) => {
       return res.json({
@@ -18,11 +17,11 @@ function getData(req, res){
           name: foundedUser.name,
           username: foundedUser.username,
           phone: foundedUser.phone,
-          about : foundedUser.about ,
-          email : foundedUser.email ,
-          image : foundedUser.image  ,
+          about: foundedUser.about,
+          email: foundedUser.email,
+          image: foundedUser.image,
           transActions: foundedUser.transActions,
-            amount : foundedUser.amount
+          amount: foundedUser.amount,
         },
         status: true,
       });
@@ -32,6 +31,4 @@ function getData(req, res){
     });
 }
 
-module.exports = { getData }
-
-
+module.exports = { getData };

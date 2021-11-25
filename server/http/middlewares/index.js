@@ -1,15 +1,11 @@
-//middlewares
 const passport = require("passport");
 
-
-
-// authenticate middleware !!
 function authMiddleWare(req, res, next) {
   passport.authenticate("jwt", { session: false }, (err, user, info) => {
     if (err || !user)
       return res.status(401).json({
         data: info.message || "اجازه دسترسی ندارید",
-        status: false ,
+        status: false,
       });
 
     req.user = user;
@@ -18,4 +14,4 @@ function authMiddleWare(req, res, next) {
   })(req, res, next);
 }
 
-module.exports = { authMiddleWare } ;
+module.exports = { authMiddleWare };

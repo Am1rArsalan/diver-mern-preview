@@ -18,7 +18,7 @@ export default makeStyles(
       color: "#FFFFFF",
       fontSize: 8,
       borderRadius: 8,
-        padding: 4
+      padding: 4,
     },
   }),
   { index: 1 }

@@ -1,9 +1,8 @@
-import React from 'react' ;
-import { useEffect , useState } from 'react' ;
+import React from "react";
+import { useEffect, useState } from "react";
 
-export default function (props) {
+export default function useSuspense(props) {
   const [component, setComponent] = useState([]);
-  //const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     if (props.isChecked && props.checkOnce) {
@@ -22,7 +21,7 @@ export default function (props) {
       }
     } else {
       let tempComponent = [];
-      let tempMultiplier= props.multiplier || 1;
+      let tempMultiplier = props.multiplier || 1;
       for (let i = 0; i < tempMultiplier; i++) {
         tempComponent.push(<props.placeholder key={i} />);
       }
@@ -35,5 +34,5 @@ export default function (props) {
       }
     };
   }, [props.condition, props.children]);
- return component;
+  return component;
 }

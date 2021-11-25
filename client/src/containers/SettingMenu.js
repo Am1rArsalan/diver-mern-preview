@@ -1,4 +1,4 @@
-import React  from 'react' ;
+import React from "react";
 import {
   Grid,
   useMediaQuery,
@@ -11,15 +11,10 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import { BsCardList } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
-//import { Link  } from "react-router-dom";
-import {
-  IoMdContact,
-  IoMdLogOut,
-  IoIosCamera,
-} from "react-icons/io";
+import { IoMdContact, IoMdLogOut, IoIosCamera } from "react-icons/io";
 import useSharedStyles from "../components/UI/useShareStyles";
 import ControllButtons from "../components/UI/ControlButtons";
-import { Link } from '@reach/router' ;
+import { Link } from "@reach/router";
 
 const useSettingItemStyles = makeStyles(
   (theme) => ({
@@ -112,7 +107,9 @@ export default function ({ handleShowContent }) {
                 />
                 <SettingMenuItem
                   link="logout"
-                  text="خروج" icon={<IoMdLogOut size="2em" />} />
+                  text="خروج"
+                  icon={<IoMdLogOut size="2em" />}
+                />
               </List>
             </Grid>
           </Grid>
@@ -121,4 +118,3 @@ export default function ({ handleShowContent }) {
     </Grid>
   );
 }
-

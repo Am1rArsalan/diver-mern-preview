@@ -7,7 +7,7 @@ import useStyles from "../UI/styles/SideBarStyles";
 import UserInfo from "../UI/UserInfo";
 import SideNavigationList from "../UI/SideNavigation";
 
-export default function () {
+export default function SideBar() {
   const classes = useStyles();
   const sharedClasses = useSharedStyles();
   const state = useSelector((state) => state.user);
@@ -18,7 +18,6 @@ export default function () {
         root: [sharedClasses.root, classes.root, classes.sideBackground].join(
           " "
         ),
-        //"grid-xs-2": classes.sideSize,
       }}
       style={{ paddingTop: "2.5rem", width: 160 }}
       xs={2}
@@ -30,8 +29,7 @@ export default function () {
         alignItems="center"
         justify="space-evenly"
       >
-        {/*   Better To path this with object but done with this approach  */}
-       <UserInfo
+        <UserInfo
           name={state.user ? state.user.data.name : "....."}
           username={state.user ? state.user.data.username : "....."}
           image={state.user ? state.user.data.image : "....."}

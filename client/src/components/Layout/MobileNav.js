@@ -1,24 +1,18 @@
-import React  from "react";
-import {
-  makeStyles,
-} from "@material-ui/core/styles";
-import {
-  BottomNavigationAction,
-  BottomNavigation,
-} from "@material-ui/core";
-import { NavLink } from "react-router-dom";
-import HomeIcon from './../UI/icons/HomeIcon' ;
-import SettingIcon from './../UI/icons/SettingIcon' ;
-import ContactIcon from './../UI/icons/SettingIcon' ;
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import { BottomNavigationAction, BottomNavigation } from "@material-ui/core";
+import HomeIcon from "./../UI/icons/HomeIcon";
+import SettingIcon from "./../UI/icons/SettingIcon";
+import ContactIcon from "./../UI/icons/SettingIcon";
 import { Link } from "@reach/router";
 
 const useMobileNavStyles = makeStyles({
   root: {
-      justifyContent : "space-around"
+    justifyContent: "space-around",
   },
 });
 
-export default function() {
+export default function MobileNav() {
   const classes = useMobileNavStyles();
   const [value, setValue] = React.useState(0);
   return (
@@ -28,7 +22,7 @@ export default function() {
         setValue(newValue);
       }}
       showLabels
-      classes={{ root  : classes.root}}
+      classes={{ root: classes.root }}
     >
       <Link to="/setting">
         <BottomNavigationAction label="مخاطبین" icon={<ContactIcon />} />

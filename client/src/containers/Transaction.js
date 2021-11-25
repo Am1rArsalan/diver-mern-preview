@@ -12,9 +12,8 @@ import UserAvatar from "../components/UI/UserAvatar";
 import useSharedClasses from "../components/UI/useShareStyles";
 import useStyles from "../components/UI/styles/TransActionItemStyles";
 import propTypes from "prop-types";
-import { convertToPersainDate  } from '../helpers/' ;
-import PersianCurrency from '../components/UI/PersianCurrency' ;
-
+import { convertToPersainDate } from "../helpers/";
+import PersianCurrency from "../components/UI/PersianCurrency";
 
 function TransAction({ data }) {
   const classes = useStyles();
@@ -29,7 +28,7 @@ function TransAction({ data }) {
         <UserAvatar />
       </ListItemAvatar>
       <Grid container justify="space-between" alignItems="center">
-        <Grid item sm={!match ? 8 : 0} md={7} >
+        <Grid item sm={!match ? 8 : 0} md={7}>
           <Grid
             container
             direction={matchXs ? "column" : "row-reverse"}
@@ -161,9 +160,7 @@ function TransAction({ data }) {
             alignItems="center"
           >
             <Grid>
-               <PersianCurrency
-                  amount={data.amount}
-               />
+              <PersianCurrency amount={data.amount} />
               <Typography
                 classes={{
                   root: [sharedClasses.text, sharedClasses.alignLeft].join(" "),
@@ -182,10 +179,7 @@ function TransAction({ data }) {
             <Grid>
               <Typography
                 classes={{
-                  root: [
-                    sharedClasses.text,
-                    sharedClasses.alignLeft,
-                  ].join(" "),
+                  root: [sharedClasses.text, sharedClasses.alignLeft].join(" "),
                 }}
                 component="p"
                 style={{

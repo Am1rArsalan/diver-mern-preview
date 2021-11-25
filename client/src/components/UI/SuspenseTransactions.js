@@ -1,7 +1,7 @@
-import React , {  Fragment } from "react";
-import useSuspense from '../../hooks/useSuspense' ;
+import React, { Fragment } from "react";
+import useSuspense from "../../hooks/useSuspense";
 
-export default function(props) {
+export default function SuspenseTransactions(props) {
   const component = useSuspense(props);
   return (
     <Fragment>
@@ -11,4 +11,3 @@ export default function(props) {
     </Fragment>
   );
 }
-

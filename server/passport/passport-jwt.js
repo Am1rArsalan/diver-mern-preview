@@ -1,4 +1,4 @@
-const config  = require("../config/") ;
+const config = require("../config/");
 const passport = require("passport");
 const passportJWT = require("passport-jwt");
 const User = require("../models/user");
@@ -10,7 +10,7 @@ passport.use(
   new JWTStrategy(
     {
       jwtFromRequest: ExtractJWT.fromExtractors([
-      ExtractJWT.fromUrlQueryParameter("api_token"),
+        ExtractJWT.fromUrlQueryParameter("api_token"),
       ]),
       secretOrKey: config.jwt.secret_key,
     },

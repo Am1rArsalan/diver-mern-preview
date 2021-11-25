@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
 export default makeStyles(
   () => ({
     myClass: {
@@ -11,10 +10,9 @@ export default makeStyles(
         width: "19rem",
       },
       "& input": {
-          fontSize: 14
+        fontSize: 14,
       },
     },
   }),
   { index: 1 }
 );
-

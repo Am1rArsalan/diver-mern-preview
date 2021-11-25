@@ -1,10 +1,10 @@
-
 import {
-    AUTHENTICATE , AUTHENTICATE_SUCCESS , AUTHENTICATE_FAILED
+  AUTHENTICATE,
+  AUTHENTICATE_SUCCESS,
+  AUTHENTICATE_FAILED,
 } from "./../action/actionTypes";
 
-
-const initialState = { auth : false , error: "" };
+const initialState = { auth: false, error: "" };
 
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -12,15 +12,14 @@ export default function (state = initialState, action) {
       return { ...state };
     }
     case AUTHENTICATE_SUCCESS: {
-        return { ...state  , auth : true };
+      return { ...state, auth: true };
     }
 
     case AUTHENTICATE_FAILED: {
-      return { ...state};
+      return { ...state };
     }
     default: {
       return state;
     }
   }
 }
-

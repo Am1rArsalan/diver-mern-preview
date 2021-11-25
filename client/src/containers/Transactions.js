@@ -1,47 +1,44 @@
 import React, { useState } from "react";
 import { useTheme } from "@material-ui/core/styles";
-import {
-  Grid,
-  List,
-  useMediaQuery,
-} from "@material-ui/core";
+import { Grid, List, useMediaQuery } from "@material-ui/core";
 import SuspenseTransactions from "../components/UI/SuspenseTransactions";
 import useScrollPos from "../hooks/useScrollPos";
 import TransAction from "./TransAction";
 import useTransActionStyles from "../components/UI/styles/TransActionStyles";
 import useTransActions from "../hooks/useTransActions";
-import useTransActionItemStyle from '../components/UI/styles/TransActionItemStyles' ;
-import {
-  ListItem,
-  ListItemAvatar,
-  Avatar
-} from "@material-ui/core";
-
+import useTransActionItemStyle from "../components/UI/styles/TransActionItemStyles";
+import { ListItem, ListItemAvatar, Avatar } from "@material-ui/core";
 
 function Placeholder() {
-  const classes = useTransActionItemStyle() ;
+  const classes = useTransActionItemStyle();
   return (
     <ListItem classes={{ root: classes.listItem }}>
       <ListItemAvatar>
-       <Avatar
-         alt="Travis Howard"
-         className="transActionPlaceHolder"
-         style={{
-            color : "transparent"
-         }}
+        <Avatar
+          alt="Travis Howard"
+          className="transActionPlaceHolder"
+          style={{
+            color: "transparent",
+          }}
         />
       </ListItemAvatar>
-        <Grid container justify="space-between" alignItems="center" className="transActionPlaceHolder" style={{ borderRadius :"2rem" , color :"transparent"}}> ""</Grid>
+      <Grid
+        container
+        justify="space-between"
+        alignItems="center"
+        className="transActionPlaceHolder"
+        style={{ borderRadius: "2rem", color: "transparent" }}
+      >
+        {" "}
+        ""
+      </Grid>
     </ListItem>
   );
 }
 
-
-
-
-export default function () {
+export default function TransActions() {
   const classes = useTransActionStyles();
-  const [dense, setDense] = useState(false);
+  const [dense] = useState(false);
   const transActions = useTransActions();
   const scrollPos = useScrollPos();
   const theme = useTheme();
@@ -69,8 +66,8 @@ export default function () {
           </List>
         </Grid>
       </Hidden>
-*/}
-      <Grid container spacing={2}  className="page">
+      */}
+      <Grid container spacing={2} className="page">
         <Grid item xs={12}>
           <div className={classes.demo}>
             <List
@@ -94,4 +91,3 @@ export default function () {
     </>
   );
 }
-

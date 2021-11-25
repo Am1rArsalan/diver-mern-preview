@@ -1,18 +1,12 @@
-import React  from "react";
-import { useTheme  } from "@material-ui/core/styles";
-import {
-  useMediaQuery,
-  Grid,
-  Fab,
-  Typography,
-} from "@material-ui/core";
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import { useMediaQuery, Grid, Fab, Typography } from "@material-ui/core";
 import useSharedStyles from "../UI/useShareStyles";
-import useHeader from '../../hooks/useHeader' ;
-import useStyles from '../UI/styles/AmountStyles' ;
-import PersianCurrency from './PersianCurrency' ;
+import useHeader from "../../hooks/useHeader";
+import useStyles from "../UI/styles/AmountStyles";
+import PersianCurrency from "./PersianCurrency";
 
-
-export default function({ amount  }) {
+export default function ({ amount }) {
   const classes = useStyles();
   const sharedClasses = useSharedStyles();
   const theme = useTheme();
@@ -34,8 +28,7 @@ export default function({ amount  }) {
             }}
             component="p"
           >
-            {" "}
-            موجودی{" "}
+            موجودی
           </Typography>
         ) : null}
         <Typography
@@ -46,10 +39,7 @@ export default function({ amount  }) {
             transform: matchXs ? (scrolled ? "translateY(5px)" : "") : "",
           }}
         >
-
-           <PersianCurrency
-               amount={amount ? amount : 0 }
-             />
+          <PersianCurrency amount={amount ? amount : 0} />
         </Typography>
         <Typography
           classes={{
@@ -61,8 +51,7 @@ export default function({ amount  }) {
           }}
           component="p"
         >
-          {" "}
-          تومان{" "}
+          تومان
         </Typography>
       </Grid>
 

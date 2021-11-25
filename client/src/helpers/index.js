@@ -1,6 +1,5 @@
-
 export function currencyFormat(num) {
-  num = parseInt(num)
+  num = parseInt(num);
   return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 }
 
@@ -23,8 +22,7 @@ export function toPersianNum(number, dTrim) {
   return res;
 }
 
-export  function convertToPersainDate(date) {
-  console.log(typeof date)
+export function convertToPersianDate(date) {
+  console.log(typeof date);
   return new Date(date).toLocaleString("fa");
 }
-

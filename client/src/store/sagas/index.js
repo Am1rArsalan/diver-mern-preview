@@ -1,8 +1,8 @@
-//this file should be refactore later **********
-//******Amir*********
-//
-import { put, takeEvery, all ,
-    //takeLatest
+import {
+  put,
+  takeEvery,
+  all,
+  //takeLatest
 } from "redux-saga/effects";
 
 import {
@@ -12,8 +12,9 @@ import {
   AUTHENTICATE,
   AUTHENTICATE_SUCCESS,
   AUTHENTICATE_FAILED,
-  GET_USER_DATA_SUCCESSED ,
-  GET_USER_DATA_FAILED ,GET_USER_DATA
+  GET_USER_DATA_SUCCESSED,
+  GET_USER_DATA_FAILED,
+  GET_USER_DATA,
 } from "./../action/actionTypes";
 
 import Api from "../api";
@@ -38,7 +39,7 @@ function* fetchTransAction() {
     yield put({ type: FETCH_TRANSACTIONS_FAILED, error: e.message });
   }
 }
-// localhost:8000/api/login
+
 function login() {
   return Api.post("/login", {
     email: "asghar@asghar.aaa",
@@ -74,7 +75,6 @@ function* getUserData() {
   }
 }
 
-// authenticate
 export default function* watchAll() {
   yield all([
     takeEvery(FETCH_TRANSACTIONS, fetchTransAction),

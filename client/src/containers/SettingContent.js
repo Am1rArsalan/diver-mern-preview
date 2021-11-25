@@ -1,6 +1,5 @@
-import React , { useEffect }  from "react";
+import React, { useEffect } from "react";
 import UserAvatar from "../components/UI/UserAvatar";
-import { Switch as SwitchRouter, Route } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import {
   Badge,
@@ -13,8 +12,6 @@ import CameraSvg from "./../assets/camera.svg";
 import SmallAvatar from "../components/UI/SmallAvatar";
 import { makeStyles } from "@material-ui/core/styles";
 import useSharedStyles from "../components/UI/useShareStyles";
-import ProfileSetting from './ProfileSetting' ;
-
 
 function AdvanceSetting() {
   return "this is advanceSetting ";
@@ -41,8 +38,7 @@ const useSettingContentStyles = makeStyles(
   { index: 1 }
 );
 
-export default function ({ closeContent , children }) {
-  // when other setting Components added tis component  will be changed
+export default function ({ closeContent, children }) {
   const classes = useSettingContentStyles();
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
@@ -75,7 +71,7 @@ export default function ({ closeContent , children }) {
           </Grid>
         </Grid>
         <Grid xs={12} item style={{ textAlign: "center" }}>
-            {children}
+          {children}
         </Grid>
       </Grid>
     </Grid>

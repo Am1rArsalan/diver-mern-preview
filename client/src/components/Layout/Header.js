@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery, Grid, Hidden } from "@material-ui/core";
 import useSharedStyles from "../UI/useShareStyles";
@@ -9,28 +9,32 @@ import SearchBar from "../UI/SearchBar";
 import Amount from "../UI/Amount";
 import useHeader from "../../hooks/useHeader";
 import useHeaderStyles from "../UI/styles/HeaderStyles";
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 
-
-// Header
-export default function () {
+export default function Header() {
   const classes = useHeaderStyles();
   const sharedClasses = useSharedStyles();
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("sm"));
   const matchXs = useMediaQuery(theme.breakpoints.down("xs"));
   const matchVerySmall = useMediaQuery("(max-width:375px)");
-  const { showSerchBar, toggleShowSearchBar, scrolled } = useHeader();
-  let headerClasse =
+  const { showSearchBar, toggleShowSearchBar, scrolled } = useHeader();
+  let headerClasses =
     scrolled && match ? classes.headerScrolled : classes.headerScrollTop;
 
-  let state =  useSelector(state => state.user ) ;
+  let state = useSelector((state) => state.user);
   return (
-    <Grid conatiner={match} direction="row"  style={{ marginBottom : !match ? 16 : 0  }}  >
+    <Grid
+      conatiner={match}
+      direction="row"
+      style={{ marginBottom: !match ? 16 : 0 }}
+    >
       <Grid
         xs={12}
         item
-        className={[sharedClasses.root, classes.header, headerClasse].join(" ")}
+        className={[sharedClasses.root, classes.header, headerClasses].join(
+          " "
+        )}
       >
         <Grid
           container
@@ -84,8 +88,8 @@ export default function () {
 
               <Grid item>
                 <Amount
-                    amount={state.user ? state.user.data.amount: "Loading....."}
-                  />
+                  amount={state.user ? state.user.data.amount : "Loading....."}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -105,7 +109,7 @@ export default function () {
           </Hidden>
         </Grid>
       </Grid>
-      {showSerchBar && matchXs ? <SearchBar /> : null}
+      {showSearchBar && matchXs ? <SearchBar /> : null}
     </Grid>
   );
 }

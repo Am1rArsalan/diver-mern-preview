@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const config = require("../../config") ;
+const config = require("../../config");
 
 async function login(req, res, next) {
   passport.authenticate(
@@ -28,8 +28,6 @@ async function login(req, res, next) {
             status: "error",
           });
         }
-        // create token
-        // with seconds
         const token = jwt.sign({ id: user.id }, config.jwt.secret_key, {
           expiresIn: 60 * 60 * 1,
         });
@@ -49,4 +47,5 @@ async function logout(req, res, next) {
     status: true,
   });
 }
+
 module.exports = { logout, login };

@@ -5,7 +5,7 @@ import Contacts from "./containers/Contacts";
 import Home from "./containers/TransActions";
 import { useDispatch } from "react-redux";
 import { getUserData, authenticate } from "./store/action";
-import apptheme from "./components/UI/theme";
+import appTheme from "./components/UI/theme";
 import { ThemeProvider } from "@material-ui/core/styles";
 import { Router, Location } from "@reach/router";
 import ProfileSetting from "./containers/ProfileSetting";
@@ -20,10 +20,6 @@ const FadeTransitionRouter = (props) => (
     {({ location }) => (
       <TransitionGroup className="transition-group">
         <CSSTransition key={location.key} classNames="fade" timeout={500}>
-          {/* the only difference between a router animation and
-            any other animation is that you have to pass the
-            location to the router so the old screen renders
-            the "old location" */}
           <Router location={location} className="router">
             {props.children}
           </Router>
@@ -33,7 +29,7 @@ const FadeTransitionRouter = (props) => (
   </Location>
 );
 
-export default function () {
+export default function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,7 +38,7 @@ export default function () {
   }, []);
 
   return (
-    <ThemeProvider theme={apptheme}>
+    <ThemeProvider theme={appTheme}>
       <Layout>
         <FadeTransitionRouter>
           <Home path="/" />

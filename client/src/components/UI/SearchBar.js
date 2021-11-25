@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Grid, InputAdornment, FilledInput } from "@material-ui/core";
 import { FaSearch } from "react-icons/fa";
 import useScrollPos from "./../../hooks/useScrollPos";
-import useSearchBarStyles from './styles/SearchBarStyles' ;
+import useSearchBarStyles from "./styles/SearchBarStyles";
 
-export default function () {
+export default function SearchBar() {
   const classes = useSearchBarStyles();
   const [value, setVal] = useState();
   const scrollPos = useScrollPos();

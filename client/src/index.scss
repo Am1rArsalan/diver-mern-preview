@@ -1,4 +1,3 @@
-// some scss
 @font-face {
   font-family: IRANSans;
   src: url("./assets/FontsFree-Net-ir_sans.ttf");
@@ -6,29 +5,24 @@
 }
 
 @mixin respond($break-point) {
-  // 0 -600 px
   @if $break-point == phone {
     @media (max-width: 37.5em) {
       @content;
     }
   }
-  // 600px - 900px
+
   @if $break-point == port-tab {
     @media (max-width: 56.25em) {
       @content;
     }
   }
 
-  // 900px -  1200px
   @if $break-point == land-tab {
     @media (max-width: 75em) {
       @content;
     }
   }
 
-  // 1200px  - 1800px desktop and normal screen sizes ;
-
-  // 1800px  - ... large
   @if $break-point == large-desktop {
     @media (min-width: 112.5em) {
       @content;
@@ -48,21 +42,6 @@
   //}
 }
 
-html {
-  //font-size: 62.5%; // 1rem = 10px ;   10/16  * 100   =
-  //box-sizing: inherit;
-  //@include respond(land-tab) {
-  //font-size: 56.25%; // 1rem=9px 9/16 *100
-  //}
-  //
-  //@include respond(port-tab) {
-  //font-size: 50%; //   1rem=8px (8/16) *100
-  //}
-  //
-  //@include respond(large-desktop) {
-  //font-size: 75%; // 1rem = 12px
-  //}
-}
 
 body {
   margin: 0;

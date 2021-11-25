@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { SvgIcon  } from "@material-ui/core";
+import { SvgIcon } from "@material-ui/core";
 
-let HomeIcon = ({width , height}) => {
+let HomeIcon = ({ width, height }) => {
   return (
     <SvgIcon
       width={width}

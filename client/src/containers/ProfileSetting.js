@@ -1,9 +1,8 @@
-import React  from "react";
+import React from "react";
 import { Grid, TextField } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import useProfileSettingStyles  from '../components/UI/styles/ProfileSettingStyles' ;
-
+import useProfileSettingStyles from "../components/UI/styles/ProfileSettingStyles";
 
 function ProfileSetting() {
   const classes = useProfileSettingStyles();
@@ -18,7 +17,6 @@ function ProfileSetting() {
   }) => (
     <TextField
       label={label}
-      //placeholder={placeholder}
       error={touched && invalid}
       helperText={touched && error}
       {...input}
@@ -33,7 +31,6 @@ function ProfileSetting() {
   if (!state.user) return "Loading User Data ";
   return (
     <Grid container direction="coumn" justify="center">
-      {/*   will be change with redux form */}
       <Grid item xs={12}>
         <Field
           value={state.user.data.name}
@@ -46,7 +43,6 @@ function ProfileSetting() {
           }}
         />
       </Grid>
-
       <Grid item xs={12}>
         <TextField
           id="standard-number"
@@ -61,7 +57,6 @@ function ProfileSetting() {
           value={state.user.data.phone}
         />
       </Grid>
-
       <Grid item xs={12}>
         <TextField
           id="standard-number"
@@ -76,7 +71,6 @@ function ProfileSetting() {
           value={state.user.data.username}
         />
       </Grid>
-
       <Grid item xs={12}>
         <TextField
           id="standard-number"
@@ -91,7 +85,6 @@ function ProfileSetting() {
           value={state.user.data.about}
         />
       </Grid>
-
       <Grid item xs={12}>
         <TextField
           id="standard-number"
